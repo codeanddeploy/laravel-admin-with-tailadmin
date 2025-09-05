@@ -616,7 +616,7 @@
             <img src="admin/default/images/user/owner.jpg" alt="User" />
           </span>
 
-          <span class="text-theme-sm mr-1 block font-medium"> Musharof </span>
+          <span class="text-theme-sm mr-1 block font-medium"> {{auth()->user()->name}} </span>
 
           <svg
             :class="dropdownOpen && 'rotate-180'"
@@ -646,12 +646,12 @@
             <span
               class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400"
             >
-              Musharof Chowdhury
+              {{auth()->user()->name}}
             </span>
             <span
               class="text-theme-xs mt-0.5 block text-gray-500 dark:text-gray-400"
             >
-              randomuser@pimjo.com
+              {{auth()->user()->email}}
             </span>
           </div>
 
@@ -660,7 +660,7 @@
           >
             <li>
               <a
-                href="profile.html"
+                href="{{route('profile.index')}}"
                 class="group text-theme-sm flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
               >
                 <svg
@@ -728,7 +728,8 @@
               </a>
             </li>
           </ul>
-          <button
+          <a
+            href="{{route('auth.logout')}}"
             class="group text-theme-sm mt-3 flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
           >
             <svg
@@ -748,7 +749,7 @@
             </svg>
 
             Sign out
-          </button>
+          </a>
         </div>
         <!-- Dropdown End -->
       </div>
